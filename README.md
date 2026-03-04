@@ -27,12 +27,12 @@ export CONFLUENCE_EMAIL="your-email@company.com"
 export CONFLUENCE_API_TOKEN="your-api-token"
 export CONFLUENCE_SITE="https://yourcompany.atlassian.net/wiki"
 export CONFLUENCE_SPACE_KEY="YOUR_SPACE"
-export CONFLUENCE_FOLDER_ID="1234567890"
+export CONFLUENCE_PARENT_ID="1234567890"
 ```
 
 - `CONFLUENCE_SITE`: Confluence Cloud 사이트 URL (`/wiki` 포함)
 - `CONFLUENCE_SPACE_KEY`: Space 설정에서 확인 가능
-- `CONFLUENCE_FOLDER_ID`: 노트를 저장할 폴더의 URL에서 확인 (예: `.../folder/1234567890`)
+- `CONFLUENCE_PARENT_ID`: 노트를 저장할 부모 페이지 ID (URL에서 확인: `.../pages/1234567890`)
 
 ### 3. 확인
 

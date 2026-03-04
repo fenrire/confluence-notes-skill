@@ -7,14 +7,14 @@ argument-hint: <제목> 또는 <제목> <간단한 설명>
 # /confluence-notes 스킬
 
 ## 역할
-현재 대화에서 작성된 내용을 Confluence 폴더 아래에 페이지로 저장합니다.
+현재 대화에서 작성된 내용을 Confluence 부모 페이지 아래에 하위 페이지로 저장합니다.
 
 ## 환경변수 (필수)
 - `CONFLUENCE_EMAIL` — Atlassian 계정 이메일
 - `CONFLUENCE_API_TOKEN` — Atlassian API 토큰
 - `CONFLUENCE_SITE` — 사이트 URL (예: `https://mycompany.atlassian.net/wiki`)
 - `CONFLUENCE_SPACE_KEY` — Space Key (예: `DEV`)
-- `CONFLUENCE_FOLDER_ID` — 노트를 저장할 폴더/페이지 ID
+- `CONFLUENCE_PARENT_ID` — 노트를 저장할 부모 페이지 ID
 
 ## 스크립트 경로
 이 스킬의 헬퍼 스크립트는 SKILL.md와 같은 폴더에 있습니다:

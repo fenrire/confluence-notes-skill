@@ -12,7 +12,7 @@ Environment variables required:
     CONFLUENCE_API_TOKEN    - Atlassian API token
     CONFLUENCE_SITE         - Site URL (e.g. https://mycompany.atlassian.net/wiki)
     CONFLUENCE_SPACE_KEY    - Space key (e.g. DEV)
-    CONFLUENCE_FOLDER_ID    - Parent folder/page ID for notes
+    CONFLUENCE_PARENT_ID    - Parent folder/page ID for notes
 """
 
 import argparse
@@ -31,7 +31,7 @@ def get_config():
         "CONFLUENCE_API_TOKEN": os.environ.get("CONFLUENCE_API_TOKEN", ""),
         "CONFLUENCE_SITE": os.environ.get("CONFLUENCE_SITE", ""),
         "CONFLUENCE_SPACE_KEY": os.environ.get("CONFLUENCE_SPACE_KEY", ""),
-        "CONFLUENCE_FOLDER_ID": os.environ.get("CONFLUENCE_FOLDER_ID", ""),
+        "CONFLUENCE_PARENT_ID": os.environ.get("CONFLUENCE_PARENT_ID", ""),
     }
     missing = [k for k, v in required.items() if not v]
     if missing:
@@ -72,7 +72,7 @@ def create_page(title, body_html, config=None):
     result = api_request(config, "/rest/api/content", method="POST", data={
         "type": "page",
         "title": title,
-        "ancestors": [{"id": config["CONFLUENCE_FOLDER_ID"]}],
+        "ancestors": [{"id": config["CONFLUENCE_PARENT_ID"]}],
         "space": {"key": config["CONFLUENCE_SPACE_KEY"]},
         "body": {
             "storage": {
@@ -127,7 +127,7 @@ def list_pages(config=None):
 
     result = api_request(
         config,
-        f"/rest/api/content/{config['CONFLUENCE_FOLDER_ID']}/child/page"
+        f"/rest/api/content/{config['CONFLUENCE_PARENT_ID']}/child/page"
         f"?limit=50&expand=version"
     )
     pages = []
